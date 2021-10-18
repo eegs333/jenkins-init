@@ -11,5 +11,19 @@ jenkins:
         - "Overall/Administer:admin"
         - "Overall/Read:authenticated"
 
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+         - basicSSHUserPrivateKey:
+           scope: SYSTEM
+             id: sshUser
+             username: ec2-user 
+             passphrase:  ""
+             description: "ssh key"
+             privateKeySource:
+               directEntry: # The key 'agent_private_key' resolved from a docker secret defined in docker-compose.yml
+                 privateKey: ${agent_private_key}
+
 jobs:
   - file: /usr/local/seedjob.groovy 
