@@ -17,13 +17,13 @@ credentials:
       - credentials:
          - basicSSHUserPrivateKey:
            scope: GLOBAL 
-             id: sshUser
-             username: ec2-user 
-             passphrase:  ""
-             description: "ssh key"
-             privateKeySource:
-               directEntry: 
-                 privateKey: "${readFile:/var/jenkins_home/.ssh/my_key.pem}"
+           id: sshUser
+           username: ec2-user 
+           passphrase:  ""
+           description: "ssh key"
+           privateKeySource:
+             directEntry: 
+               privateKey: "${readFile:/var/jenkins_home/.ssh/my_key.pem}"
 
 jobs:
   - file: /usr/local/seedjob.groovy 
